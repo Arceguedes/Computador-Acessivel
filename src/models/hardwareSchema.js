@@ -2,7 +2,27 @@ const mongoose = require('mongoose');
 
 const hardwareSchema = new mongoose.Schema({
     id: mongoose.Schema.Types.ObjectId,
-    name: {
+    title: {
+        type: String,
+        required: true
+    },
+    brand: {
+        type: String,
+        required: true
+    },
+    model: {
+        type: String,
+        required: true
+    },
+    condition: {
+        type: String,
+        required: true
+    },
+    description:{
+        type: String,
+        required: true
+    },
+    category: {
         type: String,
         required: true
     },
