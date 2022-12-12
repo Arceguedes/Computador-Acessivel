@@ -30,7 +30,35 @@ const createUser = async (req,res)=>{
 };
 
 const login = async(req,res)=>{
-
+    try{
+        userSchema.findOne({email: req.body.email}, (error,user)=>{
+            if (!user){
+                return res.status(404).send({
+                    message: "Usuário não encontrado"
+                })
+            };
+        
+            const validPassword = bcrypt.compareSync(req.body.password,user.password);
+    
+            if (!validPassword){
+                return res.status(401).send({
+                    message: "Senha inválida"
+                })
+            }
+    
+            const token = jwt.sign({name:user.name},SECRET);
+    
+            res.status(200).send({
+                message: "Guarde seu token:",
+                token
+            })
+    })
+    }catch(err){
+        console.error(err)
+        res.status(500).send({
+            message: err.message
+        })
+    }
 };
 
 module.exports = {
