@@ -8,6 +8,6 @@ router.get("/show", controller.showItens);
 router.post("/register",controller.registerItens)
 router.put("/edit",controller.editItens);
 router.post("/select",controller.selectItens)
-router.post("/request",controller.requestPc)
+router.get("/request",controller.requestPc)
 
 module.exports = router;
