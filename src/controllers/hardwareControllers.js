@@ -16,8 +16,29 @@ const registerItens = async (req,res)=>{
     }
 };
 
-const editItens = async(req,res)=>{                                                                                                                                                 
+const deleteItens = async(req,res)=>{
 
+    const {id} = req.params
+    try{
+        const findItem = await hardwareSchema.findById(id);
+
+        if (!findItem) return res.status(404).json({
+            statusCode: 404,
+            message: "Item não encontrado"
+        });
+    
+        await findItem.delete()
+        return res.status(200).json({
+            statusCode: 200,
+            message: `Item deletado com sucesso`
+        })
+    }catch(err){
+        res.status(500).json({
+            statusCode: 500,
+            message: error.message
+            })
+    }
+    
 };
 
 const showItens = async(req,res)=>{
@@ -25,34 +46,29 @@ const showItens = async(req,res)=>{
     res.status(200).send(allHardware)
 }
 
-const selectItens = async(req,res)=>{
+const requestPc = async(req, res)=>{
+    const processador = await hardwareSchema.exists({ category: "processador" });
+    const moboExists = await hardwareSchema.exists({ category: "placa-mãe" });
+    const ramExists = await hardwareSchema.exists({ category: "RAM" });
+    const armazenamento = await hardwareSchema.exists({ category: "armazenamento" });
+    const fonte = await hardwareSchema.exists({ category: "fonte" });
+    const gabinete = await hardwareSchema.exists({ category: "gabinete" });
+    const monitor = await hardwareSchema.exists({ category: "monitor" });
 
-}
-
-const requestPc = async(req,res)=>{
-    const processador = await hardwareSchema.exists({ category: "processador"});
-    const moboExists = await hardwareSchema.exists({ category: "placa-mãe"});
-    const ramExists = await hardwareSchema.exists({ category: "RAM"});
-    const armazenamento = await hardwareSchema.exists({ category: "armazenamento"});
-    const fonte = await hardwareSchema.exists({ category: "fonte"});
-    const gabinete = await hardwareSchema.exists({ category: "gabinete"});
-    const monitor = await hardwareSchema.exists({ category: "monitor"});
-
-    if (processador, moboExists, ramExists,armazenamento, fonte,gabinete,monitor){
+    if (processador, moboExists, ramExists, armazenamento, fonte, gabinete, monitor) {
         return res.status(409).send({
             message: "Computador disponível em nossa base de dados!"
-        })
-    }else{
+        });
+    } else {
         return res.status(409).send({
             message: "Não há computadores disponiveis em nossa base de dados!"
-        })
+        });
     }
 }
 
 module.exports = {
     registerItens,
-    editItens,
+    deleteItens,
     showItens,
-    selectItens,
     requestPc
 }

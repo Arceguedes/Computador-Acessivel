@@ -1,5 +1,5 @@
 const userSchema = require("../models/userSchema");
-const bcrypt = require("bcrypt");
+const bcrypt = require('bcrypt');
 const jwt = require("jsonwebtoken")
 const SECRET = process.env.SECRET;
 
@@ -10,7 +10,6 @@ const createUser = async (req,res)=>{
             message: "Email já cadastrado"
         })
     }
-
     const hashedPassword = bcrypt.hashSync(req.body.password,10);
     req.body.password= hashedPassword;
 
@@ -31,6 +30,7 @@ const createUser = async (req,res)=>{
 
 const login = async(req,res)=>{
     try{
+        console.log(SECRET)
         userSchema.findOne({email: req.body.email}, (error,user)=>{
             if (!user){
                 return res.status(404).send({
@@ -45,8 +45,7 @@ const login = async(req,res)=>{
                     message: "Senha inválida"
                 })
             }
-    
-            const token = jwt.sign({name:user.name},SECRET);
+            const token = jwt.sign({name: user.name}, SECRET);
     
             res.status(200).send({
                 message: "Guarde seu token:",

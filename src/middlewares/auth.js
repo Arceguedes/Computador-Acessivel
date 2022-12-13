@@ -12,7 +12,7 @@ exports.checkAuth = (req,res,next)=>{
     }
 
     const token = authHeader.split(" ")[1];
-
+    console.log(token)
     if (!token){
         return res.status(401).send({
             message: "token error!"
