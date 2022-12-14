@@ -30,7 +30,6 @@ const createUser = async (req,res)=>{
 
 const login = async(req,res)=>{
     try{
-        console.log(SECRET)
         userSchema.findOne({email: req.body.email}, (error,user)=>{
             if (!user){
                 return res.status(404).send({
