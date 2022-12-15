@@ -18,14 +18,14 @@ Sobre os custos e logística: Cada peça possui um valor simbólico para custear
 ## Rotas
 
 🚩 **POST /users/create**<br />
-Rota para criar um usuário
+Rota para criar um usuário<br />
 🚩 **POST /users/login**<br />
-Rota para fazer login na aplicação
+Rota para fazer login na aplicação<br />
 🚩 **GET /hardware/show**<br />
-Rota que mostra todos os hardwares já cadastrado por outros clientes
+Rota que mostra todos os hardwares já cadastrado por outros clientes<br />
 🚩 **POST /hardware/register**<br />
-Rota para cadastrar um novo hardware para doação
+Rota para cadastrar um novo hardware para doação<br />
 🚩 **DELETE /hardware/delete/:id**<br />
-Rota que deleta um hardware, baseado no ID da peça.
+Rota que deleta um hardware, baseado no ID da peça.<br />
 🚩 **GET /hardware/request**<br />
 Caso existam peças suficientes para montar um computador na base de dados, ou seja, existir ao menos uma placa-mãe, processador, memória RAM, fonte de energia, armazenamento e gabinete, retornará a informação de que há um computador disponível para doação. Caso contrário, retornará a informação de que não há computadores disponíveis no momento.
