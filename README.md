@@ -1,31 +1,18 @@
 <h1 align="center">
-    Computador Acessível
+    City Atraction mapper
 </h1>
 
-## Sobre o projeto
-1. O objetivo do app “computador acessível” é unir três tipos de pessoas: Uma ou mais com conhecimento de montagem de computadores. Dois: pessoas com computadores velhos ou quebrados que queiram doar seus hardwares. E por fim três, pessoas de baixa renda que precisam de um computador.
-2. Este app não tenta substituir uma ONG gratuita, e possui custos de logística para fazer com que o projeto continue, que devem ser pagas pela pessoa beneficiária.
+## About the Project
+1. This is an old project that is almost 3 years old. This is going to be used as a base for a new one, now being a application that can be really used by other users and isnt't gonna be just for studies purpose.
+2. The new project is going to have a completely different application. This is an API to help people in new cities know what they can do, all the attractions and etc from the place they're gonna stay.
 
-## Como funciona
-Na fase de cadastro, os usuários do aplicativo podem selecionar o que pretendem fazer no app: doar peças, serem auxiliares de montagem ou ser a beneficiária.
-Para doadores: A pessoa que quiser doar qualquer hardware para o APP, pode abrir uma requisição, selecionando o que pretende doar, o dia e o horário que as peças podem ser recolhidas pela comunidade do APP. Após o recolhimento, essas peças serão cadastradas no banco de dados, o qual será útil para a parte de montagem
-Para beneficiários: Os usuários que precisam de um computador pode acionar uma requisição. Caso o sistema reconheça que na base de dados do sistema, tem peças suficientes para montar um computador, o usuário receberá a permissão de entrar em contato com algum dos montadores.
-Para montadores: Os montadores têm acesso direto ao banco de dados de peças disponíveis. Após conversar com o beneficiário e entender quais peças se enquadram às necessidades, ele poderá selecionar quais itens pretende utilizar para montar o computador. 
+## Guide
+-
 
 
-Sobre os custos e logística: Cada peça possui um valor simbólico para custear o trânsito de peças. O montador também recebe um valor simbólico. Todos esses valores são repassados para o beneficiário (O valor máximo de custo não deve passar de 200 reais). Caso o beneficiário concorde, um boleto será gerado para o pagamento das peças e serviço. Após a confirmação do pagamento, a pessoa montadora, junto com a beneficiária, marcarão um dia em comum para montagem, e receberão a permissão de ir até a base para montar o computador, e o beneficiário poderá acompanhar e assistir toda a montagem no dia.
-
-## Rotas
+## Routes
 
 🚩 **POST /users/create**<br />
-Rota para criar um usuário<br />
+Route to create user<br />
 🚩 **POST /users/login**<br />
-Rota para fazer login na aplicação<br />
-🚩 **GET /hardware/show**<br />
-Rota que mostra todos os hardwares já cadastrado por outros clientes<br />
-🚩 **POST /hardware/register**<br />
-Rota para cadastrar um novo hardware para doação<br />
-🚩 **DELETE /hardware/delete/:id**<br />
-Rota que deleta um hardware, baseado no ID da peça.<br />
-🚩 **GET /hardware/request**<br />
-Caso existam peças suficientes para montar um computador na base de dados, ou seja, existir ao menos uma placa-mãe, processador, memória RAM, fonte de energia, armazenamento e gabinete, retornará a informação de que há um computador disponível para doação. Caso contrário, retornará a informação de que não há computadores disponíveis no momento.
+Route to login user<br />
